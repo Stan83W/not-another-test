@@ -13,6 +13,11 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
+configure :build do
+  activate :minify_css
+  activate :minify_javascript
+end
+
 activate :deploy do |deploy|
   deploy.build_before = true
   deploy.deploy_method = :git
@@ -44,7 +49,4 @@ end
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
-configure :build do
-  activate :minify_css
-  activate :minify_javascript
-end
+
